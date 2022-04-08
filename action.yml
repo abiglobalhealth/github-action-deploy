@@ -1,4 +1,4 @@
-name: deploy
+name: github-action-deploy
 description: deploys a selected environment
 branding: {color: blue, icon: box}
 inputs:
