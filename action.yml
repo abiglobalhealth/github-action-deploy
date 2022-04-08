@@ -20,6 +20,10 @@ runs:
         ref: ${{github.ref_name}}
         environment: ${{inputs.environment}}
 
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{github.ref_name}}
+
     - uses: abiglobalhealth/github-action-deploy-any@v0.0.0
       with:
         environment: ${{inputs.environment}}
