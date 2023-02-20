@@ -1,16 +1,16 @@
 name: github-action-deploy
 description: deploys a selected environment
-branding: {color: blue, icon: box}
+branding: { color: blue, icon: box }
 inputs:
-  environment: {description: environment name, required: true}
-  AWS_ACCESS_KEY_ID_DEV: {description: dev aws access key id, required: true}
-  AWS_SECRET_ACCESS_KEY_DEV: {description: dev aws secret access key, required: true}
-  AWS_ACCESS_KEY_ID_TEST: {description: test aws access key id, required: true}
-  AWS_SECRET_ACCESS_KEY_TEST: {description: test aws secret access key, required: true}
-  AWS_ACCESS_KEY_ID_PROD: {description: prod aws access key id, required: true}
-  AWS_SECRET_ACCESS_KEY_PROD: {description: prod aws secret access key, required: true}
-  AWS_ACCESS_KEY_ID_CHINA: {description: china aws access key id, required: true}
-  AWS_SECRET_ACCESS_KEY_CHINA: {description: china aws secret access key, required: true}
+  environment: { description: environment name, required: true }
+  AWS_ACCESS_KEY_ID_DEV: { description: dev aws access key id, required: true }
+  AWS_SECRET_ACCESS_KEY_DEV: { description: dev aws secret access key, required: true }
+  AWS_ACCESS_KEY_ID_TEST: { description: test aws access key id, required: true }
+  AWS_SECRET_ACCESS_KEY_TEST: { description: test aws secret access key, required: true }
+  AWS_ACCESS_KEY_ID_PROD: { description: prod aws access key id, required: true }
+  AWS_SECRET_ACCESS_KEY_PROD: { description: prod aws secret access key, required: true }
+  AWS_ACCESS_KEY_ID_CHINA: { description: china aws access key id, required: true }
+  AWS_SECRET_ACCESS_KEY_CHINA: { description: china aws secret access key, required: true }
 runs:
   using: composite
   steps:
@@ -23,6 +23,9 @@ runs:
     - uses: actions/checkout@v3
       with:
         ref: ${{github.ref_name}}
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
 
     - uses: abiglobalhealth/github-action-deploy-any@v0.0.0
       with:
