@@ -25,7 +25,7 @@ runs:
         ref: ${{github.ref_name}}
     - uses: actions/setup-node@v3
       with:
-        node-version: 16
+        node-version: 18
 
     - uses: abiglobalhealth/github-action-deploy-any@v0.0.0
       with:
