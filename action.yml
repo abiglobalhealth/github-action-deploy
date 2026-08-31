@@ -23,11 +23,11 @@ runs:
     - uses: actions/checkout@v3
       with:
         ref: ${{github.ref_name}}
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 22
 
-    - uses: abiglobalhealth/github-action-deploy-any@v0.0.0
+    - uses: abiglobalhealth/github-action-deploy-any@v0.1.0
       with:
         environment: ${{inputs.environment}}
         AWS_ACCESS_KEY_ID_DEV: ${{inputs.AWS_ACCESS_KEY_ID_DEV}}
