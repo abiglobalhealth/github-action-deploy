@@ -3,6 +3,7 @@ description: deploys a selected environment
 branding: { color: blue, icon: box }
 inputs:
   environment: { description: environment name, required: true }
+  node-version: { description: node version to use, required: false, default: '22' }
   AWS_ACCESS_KEY_ID_DEV: { description: dev aws access key id, required: true }
   AWS_SECRET_ACCESS_KEY_DEV: { description: dev aws secret access key, required: true }
   AWS_ACCESS_KEY_ID_TEST: { description: test aws access key id, required: true }
@@ -25,7 +26,7 @@ runs:
         ref: ${{github.ref_name}}
     - uses: actions/setup-node@v4
       with:
-        node-version: 22
+        node-version: ${{inputs.node-version}}
 
     - uses: abiglobalhealth/github-action-deploy-any@v0.1.0
       with:
